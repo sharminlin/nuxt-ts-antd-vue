@@ -1,4 +1,7 @@
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 export default {
+  srcDir: 'src/',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-test',
@@ -41,13 +44,24 @@ export default {
     transpile: ['ant-design-vue'],
     babel: {
       plugins: [
-        "@babel/plugin-transform-runtime",
+        '@babel/plugin-transform-runtime',
         [
-          "import", 
-          { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" },
-          "ant-design-vue"
+          'import',
+          { libraryName: 'ant-design-vue', libraryDirectory: 'es', style: 'css' },
+          'ant-design-vue'
         ]
       ]
-    } 
+    },
+    plugins: [
+      new ForkTsCheckerWebpackPlugin()
+    ]
+  },
+
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './src/**/*.{ts,js,vue}'
+      }
+    }
   }
 }
