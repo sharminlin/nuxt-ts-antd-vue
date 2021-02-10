@@ -21,7 +21,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/antd-ui'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,5 +38,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['ant-design-vue'],
+    babel: {
+      plugins: [
+        "@babel/plugin-transform-runtime",
+        [
+          "import", 
+          { "libraryName": "ant-design-vue", "libraryDirectory": "es", "style": "css" },
+          "ant-design-vue"
+        ]
+      ]
+    } 
   }
 }
