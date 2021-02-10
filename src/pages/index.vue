@@ -12,7 +12,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Button } from 'ant-design-vue'
-import Logo from '~/src/components/Logo'
+import Logo from '~/components/Logo.vue'
 
 export default Vue.extend({
   components: {
