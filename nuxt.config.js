@@ -1,5 +1,3 @@
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-
 export default {
   srcDir: 'src/',
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -52,13 +50,14 @@ export default {
           'ant-design-vue'
         ]
       ]
-    },
-    plugins: [
-      new ForkTsCheckerWebpackPlugin({
-        eslint: {
-          files: './src/**/*.{ts,js,vue}'
-        }
-      })
-    ]
+    }
+  },
+
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './src/**/*.{ts,js,vue}'
+      }
+    }
   }
 }
