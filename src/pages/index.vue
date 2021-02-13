@@ -1,25 +1,37 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <Button type="primary">
-        Primary
-      </Button>
+    <div v-if="!loading">
+      <div>
+        <Button type="primary">
+          {{ word }}
+        </Button>
+      </div>
     </div>
+    <Loading v-if="loading" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Vue, Component } from 'vue-property-decorator'
 import { Button } from 'ant-design-vue'
-import Logo from '~/components/Logo.vue'
-
-export default Vue.extend({
+import Loading from '~/components/UI/Loading.vue'
+@Component({
   components: {
     Button,
-    Logo
+    Loading
   }
 })
+export default class Index extends Vue {
+  word: string = 'hello es6'
+  loading: boolean = false
+
+  created () {
+    this.loading = true
+    setTimeout(() => {
+      this.loading = false
+    }, 5000)
+  }
+}
 </script>
 
 <style lang="less" scoped>
