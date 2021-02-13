@@ -1,4 +1,4 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 
 export default {
   srcDir: 'src/',
@@ -41,6 +41,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    parallel: true,
     transpile: ['ant-design-vue'],
     babel: {
       plugins: [
@@ -53,15 +54,11 @@ export default {
       ]
     },
     plugins: [
-      new ForkTsCheckerWebpackPlugin()
+      new ForkTsCheckerWebpackPlugin({
+        eslint: {
+          files: './src/**/*.{ts,js,vue}'
+        }
+      })
     ]
-  },
-
-  typescript: {
-    typeCheck: {
-      eslint: {
-        files: './src/**/*.{ts,js,vue}'
-      }
-    }
   }
 }
