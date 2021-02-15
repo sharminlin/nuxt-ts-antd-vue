@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { Button } from 'ant-design-vue'
-import Loading from '~/components/UI/Loading.vue'
+import Loading from '~/components/UI/Loading/index.vue'
 
 @Component({
   components: {

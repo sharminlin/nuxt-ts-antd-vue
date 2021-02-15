@@ -27,7 +27,7 @@
     "types": [
       "@nuxt/types",
       "@types/node"
-    ],
+    ]
   },
   "exclude": [
     "node_modules",
@@ -36,6 +36,6 @@
   ],
   "include": [
     "types",
-    "src/**/*"
+    "src"
   ]
 }
