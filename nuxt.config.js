@@ -50,7 +50,8 @@ export default {
           'ant-design-vue'
         ]
       ]
-    }
+    },
+    extractCSS: process.env.NODE_ENV === 'production'
   },
 
   typescript: {
